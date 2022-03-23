@@ -11,6 +11,9 @@ mongoose.connection.on('open', () => {
   console.log('DB connected')
 });
 
+
+
+
 // 2. Set up any schema and models needed by the app
 const schema = mongoose.Schema ({
   word: String,
@@ -19,19 +22,22 @@ const schema = mongoose.Schema ({
 const WordDef = mongoose.model('WordDef', schema)
 
 
+
+
+
+
+// MODEL FUNCTION TO INSERT OR UPDATE WORDS/DEF
 var insert = function (word, def) {
   var formatted = new WordDef({word: word, definition: def})
 
-  WordDef.deleteOne({word: word})
-    .then(()=> {
-      formatted.save()
+  return WordDef.deleteOne({word: word})
+    .then(()=>{
+      return formatted.save()
+    })
+    .catch((err)=>{
+      return err
     })
 };
-
-var retrieve = function (term) {
-
-
-}
 
 
 // 3. Export the models

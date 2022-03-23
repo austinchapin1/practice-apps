@@ -1,9 +1,10 @@
 import React from "react";
-import Search from './Search.js';
-import List from './List.js';
-import ListItem from './ListItem.js';
+// import Search from './Search.js';
+// import List from './List.js';
+// import ListItem from './ListItem.js';
+import axios from 'axios';
 
-class App extends React.Component (
+class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -13,12 +14,15 @@ class App extends React.Component (
     }
   }
 
-  render() (
-    return <div> hello </div>
-  )
+  // componentDidMount()
 
+  render() {
+    return (
 
-)
+      <h1> hello </h1>
+
+    );}
+}
 
 
 
