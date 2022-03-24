@@ -36,8 +36,7 @@ class AddWord extends React.Component {
 
 
   render () {
-
-    const { search } = this.props;
+    // Destructure props in render function of stateful components
 
     return (
       <form>

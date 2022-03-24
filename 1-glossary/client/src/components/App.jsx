@@ -24,6 +24,7 @@ class App extends React.Component {
 
     this.search = this.search.bind(this);
     this.addWord = this.addWord.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
 
@@ -81,6 +82,22 @@ class App extends React.Component {
   }
 
 
+  delete (word, idx) {
+    // console.log('working from listitem', word, idx)
+    axios.delete('/delete', { data: word })
+      .then(response => {
+        var wordRemoved = this.state.wordList.splice(idx, 1);
+
+        this.setState({
+          wordList: wordRemoved
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
+
   render() {
     return (
       <div>
@@ -89,7 +106,7 @@ class App extends React.Component {
         <br/>
         <AddWord addWord={this.addWord}/>
         <br/>
-        <List wordList={this.state.wordList}/>
+        <List wordList={this.state.wordList} deleteFunc={this.delete}/>
       </div>
     );
   }

@@ -59,6 +59,19 @@ app.get('/search/:term', (req, res) => {
 })
 
 
+// DELETE WORD
+app.delete('/delete', (req, res) => {
+  var word = req.body.data
+  db.WordDef.deleteOne({ word: word})
+    .then(result => {
+      console.log(`${word} deleted from database`, result)
+      res.json(`${word} deleted from database`)
+    })
+    .catch(error => {
+      res.send(error)
+    })
+})
+
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening at http://localhost:${process.env.PORT}`);

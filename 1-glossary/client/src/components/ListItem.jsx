@@ -16,7 +16,7 @@ class ListItem extends React.Component {
 
   render() {
     // Destructure props in render function of stateful components
-    const { word, def } = this.props;
+    const { word, def, idx, deleteFunc } = this.props;
 
 
     return (
@@ -24,6 +24,7 @@ class ListItem extends React.Component {
         <h4>{word}</h4>
         <div>{def}</div>
         <button onClick={console.log('hello')}>EDIT</button>
+        <button onClick={deleteFunc}>DELETE</button>
         <br/>
       </div>
     )
