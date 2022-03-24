@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+var cors = require('cors')
 const path = require("path");
 const db = require('./db.js');
 const model = require('./model.js');
@@ -10,6 +11,7 @@ const app = express();
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use(express.json());
+app.use(cors())
 
 
 //ROUTES
@@ -44,6 +46,7 @@ app.get('/all', (req, res) => {
 // GET WORDS BACK FROM SEARCH
 app.get('/search/:term', (req, res) => {
   var searchTerm = req.params.term;
+  console.log(req.query)
 
   db.WordDef.find({})
   .then(results => {
