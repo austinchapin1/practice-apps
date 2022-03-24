@@ -1,6 +1,6 @@
 import React from "react";
 
-class Search extends React.Component (
+class Search extends React.Component {
 
 
   constructor(props) {
@@ -12,11 +12,12 @@ class Search extends React.Component (
   }
 
 
-  render() (
-    return <div> hello </div>
-  )
+  render() {
+    return (
+      <div> hello </div>
+    )}
 
-  )
+}
 
 
 

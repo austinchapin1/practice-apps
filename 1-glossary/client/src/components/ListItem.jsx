@@ -1,8 +1,7 @@
 import React from "react";
 
 
-class ListItem extends React.Component (
-
+class ListItem extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,10 +10,16 @@ class ListItem extends React.Component (
     }
   }
 
-  render() (
-    return <div> hello </div>
-  )
-)
+  // const { word, definition } = this.props
+
+  render() {
+    return (
+      // <div>{console.log(word)} </div>
+      <h1>HELLOOOOOOO</h1>
+    )}
+
+}
+
 
 
 

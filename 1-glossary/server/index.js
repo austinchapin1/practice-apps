@@ -29,11 +29,21 @@ app.post('/insert', (req, res) => {
 })
 
 
+// GET ALL
+app.get('/all', (req, res) => {
+  db.WordDef.find({})
+    .then(results=> {
+      res.json(results)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+})
 
 
 // GET WORDS BACK FROM SEARCH
-app.get('/search', (req, res) => {
-  var searchTerm = req.body.term;
+app.get('/search/:term', (req, res) => {
+  var searchTerm = req.params.term;
 
   db.WordDef.find({})
   .then(results => {
@@ -41,7 +51,6 @@ app.get('/search', (req, res) => {
     res.json(filtered)
   })
   .catch(error => {
-    console.log(error)
     res.send(error)
   })
 })
