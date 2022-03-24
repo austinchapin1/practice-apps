@@ -6,13 +6,6 @@ import ListItem from './ListItem.jsx';
 import AddWord from './AddWord.jsx';
 import axios from 'axios';
 
-var testData = [
-   {word: 'hey', definition: 'how arrrre ya'},
-   {word: 'hello', definition: 'how arrrre ya!&*&^!&^!&*!'},
-   {word: 'howdy', definition: 'how arrrre ya345345232323bdfsbfbf'},
-   {word: 'hiya', definition: 'how arrrre ya53534543534'},
-   {word: 'bye', definition: 'howgdfghdfhdfhre ya'},
-]
 
 class App extends React.Component {
   constructor(props) {
@@ -29,7 +22,10 @@ class App extends React.Component {
 
 
 
-  componentDidMount() {
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// MOUNT COMPONENT WITH DATA ON PAGE LOAD
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+componentDidMount() {
     axios.get('/all')
       .then(response => {
         // Map over response and format objects to get word/definition
@@ -47,10 +43,12 @@ class App extends React.Component {
   }
 
 
+
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// SEARCH - GET request for filtered content
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   search(term) {
-    axios.get('/search', { params: {
-      term: term
-    }})
+    axios.get('/search', { params: { term: term }})
       .then(response => {
         var formatted = response.data.map(obj => {
           return { word: obj.word, definition: obj.definition}
@@ -65,7 +63,9 @@ class App extends React.Component {
   }
 
 
-
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// ADDWORD FUNCTION - POST REQUEST
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   addWord (word, def) {
     axios.post('/insert', { word: word, definition: def })
       .then(response => {
@@ -82,14 +82,17 @@ class App extends React.Component {
   }
 
 
+
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// DELETE FUNCTION - DELETE REQUEST
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   delete (word, idx) {
-    // console.log('working from listitem', word, idx)
-    axios.delete('/delete', { data: word })
+    axios.delete('/delete', { data: {data: word }})
       .then(response => {
-        var wordRemoved = this.state.wordList.splice(idx, 1);
+        this.state.wordList.splice(idx, 1);
 
         this.setState({
-          wordList: wordRemoved
+          wordList: this.state.wordList
         })
       })
       .catch(error => {
@@ -98,6 +101,10 @@ class App extends React.Component {
   }
 
 
+
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// RENDER
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   render() {
     return (
       <div>

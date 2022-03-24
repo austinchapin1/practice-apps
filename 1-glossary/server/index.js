@@ -44,9 +44,9 @@ app.get('/all', (req, res) => {
 
 
 // GET WORDS BACK FROM SEARCH
-app.get('/search/:term', (req, res) => {
-  var searchTerm = req.params.term;
-  console.log(req.query)
+app.get('/search', (req, res) => {
+  var searchTerm = req.query.term;
+  console.log('this is req.query.term', req.query.term)
 
   db.WordDef.find({})
   .then(results => {
@@ -62,6 +62,7 @@ app.get('/search/:term', (req, res) => {
 // DELETE WORD
 app.delete('/delete', (req, res) => {
   var word = req.body.data
+
   db.WordDef.deleteOne({ word: word})
     .then(result => {
       console.log(`${word} deleted from database`, result)
