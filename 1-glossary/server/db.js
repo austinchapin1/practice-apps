@@ -43,6 +43,3 @@ var insert = function (word, def) {
 // 3. Export the models
 module.exports.WordDef = WordDef;
 module.exports.insert = insert;
-
-
-// 4. Import the models into any modules that need them

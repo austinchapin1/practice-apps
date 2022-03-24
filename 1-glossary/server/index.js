@@ -14,6 +14,8 @@ app.use(express.json());
 app.use(cors())
 
 
+
+
 //ROUTES
 // ADD NEW OR UPDATE WORD/DEF
 app.post('/insert', (req, res) => {
@@ -31,6 +33,8 @@ app.post('/insert', (req, res) => {
 })
 
 
+
+
 // GET ALL
 app.get('/all', (req, res) => {
   db.WordDef.find({})
@@ -43,10 +47,12 @@ app.get('/all', (req, res) => {
 })
 
 
+
+
 // GET WORDS BACK FROM SEARCH
 app.get('/search', (req, res) => {
   var searchTerm = req.query.term;
-  console.log('this is req.query.term', req.query.term)
+  // console.log('this is req.query.term', req.query.term)
 
   db.WordDef.find({})
   .then(results => {
@@ -57,6 +63,8 @@ app.get('/search', (req, res) => {
     res.send(error)
   })
 })
+
+
 
 
 // DELETE WORD
@@ -72,6 +80,8 @@ app.delete('/delete', (req, res) => {
       res.send(error)
     })
 })
+
+
 
 
 app.listen(process.env.PORT, () => {
