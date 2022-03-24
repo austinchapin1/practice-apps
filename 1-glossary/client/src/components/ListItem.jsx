@@ -1,5 +1,6 @@
 import React from "react";
-
+import App from './App.jsx'
+import List from './List.jsx'
 
 class ListItem extends React.Component {
   constructor(props) {
@@ -10,20 +11,12 @@ class ListItem extends React.Component {
     }
   }
 
-  // const { word, definition } = this.props
-
   render() {
     return (
-      // <div>{console.log(word)} </div>
-      <h1>HELLOOOOOOO</h1>
-    )}
 
+      <p>HELLOOOOOOO</p>
+    )
+  }
 }
-
-
-
-
-
-
 
 export default ListItem;

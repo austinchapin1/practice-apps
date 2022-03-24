@@ -5,10 +5,11 @@ import ListItem from './ListItem.jsx'
 var List = ({ wordList }) => (
 
   <div>
+    <h1>HElllloo</h1>
     <div>
-      {wordList.map( obj => {
+      {wordList.map( obj =>
         <ListItem key={obj.word} word={obj.word} def={obj.definition}/>
-      })}
+      )}
     </div>
   </div>
 )
@@ -27,6 +28,14 @@ var List = ({ wordList }) => (
 //     return (
 //       <div>
 //         <h1>hellohello</h1>
+//         <div>
+//         {this.props.wordList.map( obj => {
+//           <ListItem />
+//         })}
+//         </div>
+//         {for(var i = 0; i < 5; i++) {
+//           <ListItem />
+//         }}
 //       </div>
 //     )}
 
