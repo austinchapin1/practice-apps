@@ -19,7 +19,7 @@ db.connectAsync()
       "CREATE TABLE IF NOT EXISTS responses (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,\
         name VARCHAR(100) NOT NULL,\
         email VARCHAR(100) NOT NULL,\
-        passwrod VARCHAR(100) NOT NULL,\
+        password VARCHAR(100) NOT NULL,\
         address VARCHAR(100) NOT NULL,\
         state VARCHAR(100) NOT NULL,\
         city VARCHAR(100) NOT NULL,\
