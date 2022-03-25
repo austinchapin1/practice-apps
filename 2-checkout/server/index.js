@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require('cors');
 const path = require("path");
 const sessionHandler = require("./middleware/session-handler");
 const logger = require("./middleware/logger");
@@ -18,14 +19,24 @@ app.use(logger);
 
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use(express.json())
+app.use(cors())
 
-/**** 
- * 
- * 
+/*
  * Other routes here....
- *
- * 
  */
+
+app.get('/test', (req, res) => {
+  console.log('received', req.query);
+
+})
+
+
+app.post('/user', (req, res) => {
+  console.log('posted', req.body)
+})
+
+
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

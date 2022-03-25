@@ -64,7 +64,7 @@ class ListItem extends React.Component {
 
         <button type='text' style={wordEdit} onClick={()=>edit(this.state.wordVal, this.state.defVal, idx)}>Confirm Edit</button>
 
-        <button style={wordEdit} onClick={deleteFunc}>DELETE</button>
+        <button style={wordEdit} onClick={deleteFunc}>Delete</button>
 
       </div>
     )

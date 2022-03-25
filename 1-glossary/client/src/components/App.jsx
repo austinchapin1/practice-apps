@@ -6,6 +6,8 @@ import ListItem from './ListItem.jsx';
 import AddWord from './AddWord.jsx';
 import axios from 'axios';
 
+// import appFunctions from '../appFunctions/appFunctions.js';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -20,7 +22,7 @@ class App extends React.Component {
     this.delete = this.delete.bind(this);
     this.edit = this.edit.bind(this);
   }
-// }
+
 
 
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

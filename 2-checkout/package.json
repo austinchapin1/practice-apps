@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
-    "server-dev": "npx nodemon --watch server server/index.js",
+    "server-dev": "npx nodemon --watch server babel-watch server/index.js",
     "client-dev": "npx webpack --watch",
     "build": "npx webpack",
     "start": "node server/index.js"
@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
     "bluebird": "^3.7.2",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
@@ -25,5 +26,8 @@
     "uuid": "^8.3.2",
     "webpack": "^5.41.0",
     "webpack-cli": "^4.7.2"
+  },
+  "devDependencies": {
+    "babel-watch": "^7.7.0"
   }
 }
